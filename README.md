@@ -1,6 +1,9 @@
 # @4az/prettier-plugin-html-erb
 A prettier plugin for html erb template files that works with prettier v3.
 
+## PLEASE READ
+This library probably won't be developed any further because I no longer work with Ruby on Rails and thus, the ERB templating system. Feel free to make PRs, fork or whatever you want with this library.
+
 # Install
 ## Node
 ```bash
@@ -45,9 +48,9 @@ This plugin doesn't have any special config. You can configure the ruby formatti
 # Roadmap
 There are a number of features I want to support:
 - [x] Support erb delimiters. Ex: `<%- delimiters -%>`.
-- [ ] Port library to TypeSript.
-- [ ] Add a way to ignore sections of code of being formatted.
-- [ ] Support more ways to format blocks.
+- [-] Port library to TypeSript.
+- [-] Add a way to ignore sections of code of being formatted.
+- [-] Support more ways to format blocks.
 
 # Testing
 To run tests:

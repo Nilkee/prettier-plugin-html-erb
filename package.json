@@ -2,16 +2,16 @@
   "name": "@4az/prettier-plugin-html-erb",
   "author": "Daniel Castillo",
   "private": false,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Prettier plugin for formatting html erb templates.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/forazens/prettier-plugin-html-erb"
+    "url": "git+https://github.com/Nilkee/prettier-plugin-html-erb"
   },
-  "homepage": "https://github.com/forazens/prettier-plugin-html-erb#readme",
+  "homepage": "https://github.com/Nilkee/prettier-plugin-html-erb#readme",
   "bugs": {
-    "url": "https://github.com/ForAzens/prettier-plugin-html-erb/issues"
+    "url": "https://github.com/Nilkee/prettier-plugin-html-erb/issues"
   },
   "keywords": [
     "prettier",

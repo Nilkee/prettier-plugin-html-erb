@@ -198,6 +198,7 @@ const printExpression = (node) => {
 
     return builders.group(
       [
+        node.preNewLines > 1 ? hardline : "",
         concat([
           [openingErb, " "],
           ...lines.map((line, i) => [
@@ -214,6 +215,7 @@ const printExpression = (node) => {
 
   return builders.group(
     [
+      node.preNewLines > 1 ? hardline : "",
       builders.join(" ", [
         openingErb,
         builders.indent(node.content),
@@ -236,21 +238,27 @@ const printStatement = (node) => {
     const templateIndicatorSpace = " ".repeat((openingErb + " ").length);
 
     return builders.group(
-      concat([
-        [openingErb, " "],
-        ...lines.map((line, i) => [
-          i !== 0 ? templateIndicatorSpace : "",
-          line,
-          i !== lines.length - 1 ? hardline : "",
+      [
+        node.preNewLines > 1 ? hardline : "",
+        concat([
+          [openingErb, " "],
+          ...lines.map((line, i) => [
+            i !== 0 ? templateIndicatorSpace : "",
+            line,
+            i !== lines.length - 1 ? hardline : "",
+          ]),
+          [" ", closingErb],
         ]),
-        [" ", closingErb],
-      ]),
+      ],
       { shouldBreak: node.preNewLines > 0 },
     );
   }
 
   const statement = builders.group(
-    builders.join(" ", [openingErb, node.content, closingErb]),
+    [
+      node.preNewLines > 1 ? hardline : "",
+      builders.join(" ", [openingErb, node.content, closingErb]),
+    ],
     { shouldBreak: node.preNewLines > 0 },
   );
 

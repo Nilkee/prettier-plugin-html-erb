@@ -5,6 +5,8 @@ const PLACEHOLDER = {
   end: "~#",
 };
 
+const BLOCK_REGEX = /do(?: \|[\w_, ()]+\|)?$/;
+
 const placeholderGenerator = (text) => {
   let id = 0;
 
@@ -93,7 +95,7 @@ export const parse = (text) => {
         },
       };
 
-      const expressionIsBlock = expression.match(/do( \|[\w_, ]+\|)?$/) != null;
+      const expressionIsBlock = expression.match(BLOCK_REGEX) != null;
       if (expressionIsBlock) {
         // If a expression is opening a block, we'll treat that expression as a statement to
         // simplify the logic of blocks
@@ -129,7 +131,7 @@ export const parse = (text) => {
           const hasValidKeyword = ["if", "unless", "case"].includes(
             start.keyword,
           );
-          const hasBlock = start.content.match(/do( \|[\w_, ]+\|)?$/) != null;
+          const hasBlock = start.content.match(BLOCK_REGEX) != null;
           // If the statement is not matching, replace the content with the placeholder
           if (!hasValidKeyword && !hasBlock) {
             root.content = replaceAt(
